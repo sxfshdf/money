@@ -3,7 +3,7 @@
     <div class="content">
       <slot/>
     </div>
-    <Nav/>
+    <Nav :navs="navs"/>
   </div>
 </template>
 
@@ -13,11 +13,28 @@
     props: {},
     data() {
       return {
-
+        navs: []
       }
     },
     created() {
-
+      const defaultRoutes = ['*', '/']
+      const routes = this.$router.options.routes
+      this.navs = this.getNavs(routes, defaultRoutes)
+    },
+    methods: {
+      getNavs(routes, exclude) {
+        if (!routes || !routes.length) return
+        let navs = []
+        routes.forEach(route => {
+          if (exclude.indexOf(route.path) > -1) return
+          let nav = {}
+          nav.name = route.name
+          nav.path = route.path
+          nav.icon = route.meta ? route.meta.icon : 'discount'
+          navs.push(nav)
+        })
+        return navs
+      }
     }
   }
 </script>

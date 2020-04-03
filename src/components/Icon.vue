@@ -20,7 +20,7 @@
       }
     },
     created() {
-      console.log(this.icon, 'xxx')
+
     }
   }
 </script>

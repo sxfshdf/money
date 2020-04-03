@@ -20,6 +20,9 @@ export default class App extends Vue {
     padding: 0;
     box-sizing: border-box;
   }
+  body {
+    line-height: 1.5em;
+  }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

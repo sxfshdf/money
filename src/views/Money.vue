@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    Money
+    Money <span class="number">123789</span>
   </Layout>
 </template>
 
@@ -16,5 +16,6 @@
 </script>
 
 <style scoped lang="scss">
+  @import "~@/assets/styles/index.scss";
 
 </style>
