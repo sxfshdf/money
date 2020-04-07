@@ -6,6 +6,7 @@ import './registerServiceWorker';
 import Nav from '@/components/Nav.vue';
 import Layout from '@/components/Layout.vue';
 import Icon from '@/components/Icon.vue';
+import '@/assets/icon.js';
 
 Vue.config.productionTip = false;
 

@@ -1,27 +1,33 @@
 <template>
-  <svg class="icon">
+  <svg class="icon" aria-hidden="true">
     <use :xlink:href="'#' + icon"/>
   </svg>
 </template>
 
-<script>
+<script lang="ts">
   // let importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext)
-  let importAll = (requireContext) => requireContext.keys().forEach(requireContext)
-  try {
-    importAll(require.context('../assets/icons', true, /\.svg$/))
-  } catch (error) {
-    console.log(error)
-  }
-  export default {
-    name: "Icon",
-    props: {
-      icon: {
-        type: String
-      }
-    },
-    created() {
+  import {Component, Prop} from 'vue-property-decorator';
+  import Vue from 'vue';
 
-    }
+  const importAll = (requireContext: any) => requireContext.keys().forEach(requireContext);
+  try {
+    importAll(require.context('../assets/icons', true, /\.svg$/));
+  } catch (error) {
+    throw new Error(error);
+  }
+
+  @Component
+  export default class Icon extends Vue {
+    @Prop(String) public icon: string | undefined;
+    // name: "Icon",
+    // props: {
+    //   icon: {
+    //     type: String
+    //   }
+    // },
+    // created() {
+    //
+    // }
   }
 </script>
 

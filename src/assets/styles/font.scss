@@ -22,3 +22,39 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: PF-B;  //重命名字体名
+  src: url('~@/assets/fonts/PingFang-Bold.ttf');  //引入字体
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: PF-EL;  //重命名字体名
+  src: url('~@/assets/fonts/PingFang-ExtraLight.ttf');  //引入字体
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: PF-H;  //重命名字体名
+  src: url('~@/assets/fonts/PingFang-Heavy.ttf');  //引入字体
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: PF-L;  //重命名字体名
+  src: url('~@/assets/fonts/PingFang-Light.ttf');  //引入字体
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: PF-M;  //重命名字体名
+  src: url('~@/assets/fonts/PingFang-Medium.ttf');  //引入字体
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: PF-R;  //重命名字体名
+  src: url('~@/assets/fonts/PingFang-Regular.ttf');  //引入字体
+  font-weight: normal;
+  font-style: normal;
+}

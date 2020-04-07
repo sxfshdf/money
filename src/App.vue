@@ -19,12 +19,21 @@ export default class App extends Vue {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+  }
+  ul, ol {
+    list-style: none;
+  }
+  input {
+    background: none;
+    outline: none;
+    border: 0;
   }
   body {
     line-height: 1.5em;
   }
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: PF-R, Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

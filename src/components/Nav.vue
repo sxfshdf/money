@@ -9,22 +9,15 @@
   </nav>
 </template>
 
-<script>
-  import x from '@/assets/icons/discount.svg'
-  export default {
-    name: "Nav",
-    props: {
-      navs: {
-        type: Array,
-        default: []
-      }
-    },
-    data() {
-      return {
-        tabs: this.navs
-      }
-    }
-  }
+<script lang="ts">
+import Vue from 'vue';
+import {Component, Prop} from 'vue-property-decorator';
+
+@Component
+export default class Nav extends Vue {
+  @Prop(Array) public navs: object[] | undefined;
+  public tabs = this.navs;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -43,13 +36,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      -webkit-tap-highlight-color:rgba(255,0,0,0);
       padding: 4px 0;
 
       &.active {
         .icon {
           fill: $primary
         }
+
         .item-name {
           color: $primary
         }
