@@ -2,18 +2,24 @@
   <header class="header">
     <div class="icon-wrapper" @click="handleBackClick($event)"/>
     <Icon icon="icon-leftarrow"/>
-    <div class="title">{{title}}</div>
+    <div class="title" v-if="!showTypes">{{title}}</div>
+    <div class="title" v-if="showTypes">
+      <Types />
+    </div>
+    <div class="block"></div>
   </header>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import {Component, Prop} from 'vue-property-decorator';
-
-@Component
+import Types from '@/components/Types.vue';
+@Component({
+  components: {Types},
+})
 export default class Header extends Vue {
   @Prop({type: String, default: '提示'}) public title: string | undefined;
-
+  @Prop({type: Boolean, default: false}) public showTypes!: boolean;
   public handleBackClick(e: HTMLElement) {}
   // name: "Header",
   // props: {
@@ -34,9 +40,11 @@ export default class Header extends Vue {
   @import '~@/assets/styles/index.scss';
 
   .header {
-    padding: 11px 10px;
+    height: 44px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
 
     .icon-wrapper {
@@ -52,13 +60,17 @@ export default class Header extends Vue {
       font-size: 16px;
       font-family: PF-H;
       line-height: 1;
-      margin-left: 16px;
     }
 
     .icon {
-      height: 22px;
-      width: 22px;
+      height: 24px;
+      width: 24px;
       fill: $main-color;
+    }
+
+    .block {
+      width: 24px;
+      height: 24px;
     }
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="nav-wrapper">
-    <Header :title="title"/>
+    <Header :title="title" :showTypes="showTypes" />
     <div class="content">
       <slot/>
     </div>
@@ -27,6 +27,7 @@ interface NavItem {
 })
 export default class Layout extends Vue {
   @Prop({type: String, default: '提示'}) public title: string | undefined;
+  @Prop({type: Boolean, default: false}) public showTypes!: boolean;
 
   public navs: NavItem[] | undefined = [];
 

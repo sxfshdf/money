@@ -1,10 +1,32 @@
 <template>
-  <Layout :title="title">
+  <Layout :title="title" :showTypes="true">
     <div class="money main-wrapper">
-      <Types/>
-      <div class="input-wrapper">
-        <span class="currency">￥</span>
-        <input type="number" class="input" placeholder="0.00">
+      <div class="output-wrapper">
+        <div class="currency-wrapper">
+          <span class="currency">￥</span>
+        </div>
+        <div class="output">
+          {{output}}
+        </div>
+      </div>
+<!--      <Swipers />-->
+      <div class="number-pad">
+        <div class="numbers">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>Del</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>Clear</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button class="ok">OK</button>
+          <button class="zero">0</button>
+          <button>.</button>
+        </div>
       </div>
     </div>
   </Layout>
@@ -13,6 +35,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Types from '@/components/Types.vue';
+// import Swipers from '@/components/Swipers.vue';
 import {Component} from 'vue-property-decorator';
 
 @Component({
@@ -22,6 +45,7 @@ import {Component} from 'vue-property-decorator';
 })
 export default class Money extends Vue {
   public title = '首页';
+  public output: string = '0.00';
   // name: 'Money',
   // components: {Types},
   // data() {
@@ -44,32 +68,59 @@ export default class Money extends Vue {
   .money.main-wrapper {
     padding: 0 10px;
 
-    .input-wrapper {
+    .output-wrapper {
       margin-top: 10px;
       display: flex;
       align-items: flex-end;
-      .input {
-        width: 100%;
-        padding: 10px 10px 0 4px;
-        font-size: 48px;
-        font-family: DinPro-M;
-        line-height: 1;
-        color: $primary;
+      justify-content: center;
+      width: 100%;
 
-        &::placeholder {
-          color: $light;
+      .currency-wrapper {
+        .currency {
+          display: inline-block;
+          font-size: 20px;
+          line-height: 1;
+          color: $primary;
+          font-family: DinPro-BL;
         }
       }
 
-      .currency {
-        display: inline-block;
-        font-size: 20px;
+      .output {
+        font-family: DinPro-M;
+        color: $primary;
+        font-size: 48px;
         line-height: 1;
-        color: $light;
-        font-family: PF-H;
       }
     }
 
+    .number-pad {
+
+      .numbers {
+        /*display: flex;*/
+        @extend %clearFix;
+
+        button {
+          border: 1px solid $ex-light;
+          font-family: DinPro-B;
+          font-size: 20px;
+          line-height: 1;
+          color: $primary;
+          height: 64px;
+          float: left;
+          background: #fff;
+          width: 25%;
+
+          &.zero {
+            width: 50%;
+          }
+
+          &.ok {
+            height: 64*2px;
+            float: right;
+          }
+        }
+      }
+    }
   }
 
 

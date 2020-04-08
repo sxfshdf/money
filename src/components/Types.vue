@@ -1,10 +1,10 @@
 <template>
   <ul class="tabs-wrapper">
-    <li class="tabs-item">
-      <span :class="{'item-name': true, 'active': type === 'incomes'}" @click="clickType('incomes')">收入</span>
+    <li class="tabs-item" :class="{'active': type === 'incomes'}">
+      <span class="item-name" @click="clickType('incomes')">收入</span>
     </li>
-    <li class="tabs-item">
-      <span :class="{'item-name': true, 'active': type === 'expenses'}" @click="clickType('expenses')">支出</span>
+    <li class="tabs-item" :class="{'active': type === 'expenses'}">
+      <span class="item-name" @click="clickType('expenses')">支出</span>
     </li>
   </ul>
 </template>
@@ -29,21 +29,34 @@ export default class Types extends Vue {
   .tabs-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     .tabs-item {
-      padding: 16px 32px 0 0;
+      padding: 8px 20px;
       position: relative;
       line-height: 1;
+      border-radius: 8px;
+
+      &:last-child {
+        margin-left: 8px;
+      }
+
+      &.active {
+        background: $primary;
+        .item-name {
+          color: #fff;
+        }
+      }
 
       .item-name {
+        font-family: PF-H;
         font-size: 14px;
         color: $light;
         line-height: 1;
-        padding-bottom: 8px;
         display: inline-block;
         position: relative;
 
-        &:after {
+       /* &:after {
           position: absolute;
           content: '';
           bottom: 0;
@@ -52,16 +65,7 @@ export default class Types extends Vue {
           background: $primary;
           height: 2px;
           transition: all 0.25s;
-        }
-
-        &.active {
-          color: $primary;
-
-          &:after {
-            width: 100%;
-          }
-        }
-
+        } */
       }
     }
   }
